@@ -18,6 +18,10 @@ You must have [MetaMask](https://metamask.io/) installed, as this extension chan
 
 In the project directory, you can run:
 
+#### `npm install`
+
+Install all required packages to build the extension.
+
 #### `npm run build`
 
 Builds the extension for production to the `build` folder.
