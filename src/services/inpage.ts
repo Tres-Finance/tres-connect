@@ -1,4 +1,3 @@
-
 declare global {
     interface Window {
         ethereum: {
@@ -15,7 +14,7 @@ declare global {
                 [key: string]: CallableFunction
             }
             stopImpersonation: () => void,
-            startImpersonation: (address: string) => void,
+            startImpersonation: (address: string, triggerAccountsChanged: boolean) => void,
             originalAddress?: string
         }
     }
@@ -192,11 +191,14 @@ export const setupInpageImpersonator = () => {
     }
 
 
-    const startImpersonation = (address: string) => {
+    const startImpersonation = (address: string, triggerAccountsChanged: boolean) => {
         console.debug('start impersonation', address);
         window.impersonator.address = address;
         patchAllFunctions();
-        window.ethereum.emit('accountsChanged', [window.impersonator.address]);
+
+        if (triggerAccountsChanged) {
+            window.ethereum.emit('accountsChanged', [window.impersonator.address]);
+        }
 
     }
 
@@ -214,7 +216,8 @@ export const setupInpageImpersonator = () => {
 
     if (!window.impersonator) {
         window.impersonator = { mockedFunctionsUndoers: {}, stopImpersonation, startImpersonation };
-        console.debug('[Impersonator::inpage.js]. Injected');
+        console.log('[Impersonator::inpage.js]. Injected');
     }
 }
 
+setupInpageImpersonator()

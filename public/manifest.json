@@ -12,10 +12,34 @@
     "48": "logo.png",
     "128": "logo.png"
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],      
+      "js": ["./static/js/content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "background": {
+    "service_worker": "./static/js/background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [ "/static/js/inpage.js" ],
+      "matches": [ 
+        "http://*/*",
+        "https://*/*"
+      ]
+    }
+  ],
   "permissions": [
     "activeTab",
     "tabs",
     "scripting",
-    "storage"
+    "storage",
+    "webNavigation"
   ]
 }

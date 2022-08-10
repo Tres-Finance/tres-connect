@@ -1,15 +1,22 @@
-export { }
+import { getIsImpersonating, getLastUsedAddress } from "../common";
 
+export {}
 
-const injectScript = () => {
+const injectScript = async () => {
+
+  const [isImpersonating, lastUsedAddress] = await Promise.all([getIsImpersonating(), getLastUsedAddress()])
+  console.log(isImpersonating, lastUsedAddress)
+
   try {
     const container = document.head || document.documentElement;
     const scriptTag = document.createElement('script');
     scriptTag.setAttribute('async', 'false');
     const url = chrome.runtime.getURL('static/js/inpage.js')
     scriptTag.setAttribute('src', url);
-    const 
-    scriptTag.setAttribute('onload', 'window.impersonator.startImpersonation("0x3904b3cc9b0ce0c0248d5dbdc7d57af3d0e0dd70", false)');
+    if (isImpersonating) {
+      // TODO: inject a script that waits for "onLoad" event from inpage.js, then start impersonation via sending a message
+      scriptTag.setAttribute('onload', `window.impersonator.startImpersonation("${lastUsedAddress}", false)`);
+    }    
     container.insertBefore(scriptTag, container.children[0]);
     container.removeChild(scriptTag);
   } catch (error) {
@@ -18,8 +25,7 @@ const injectScript = () => {
 }
 
 const main = async () => {
-  console.debug("Loading inpage script")
-  injectScript()
+  await injectScript()
   console.log("content script loaded")
 }
 
