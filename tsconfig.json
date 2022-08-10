@@ -22,5 +22,9 @@
   },
   "include": [
     "src"
-, "public/inpage.ts"  ]
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
 }

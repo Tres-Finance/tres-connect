@@ -14,10 +14,7 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],      
+      "matches": ["http://*/*", "https://*/*"],
       "js": ["./static/js/content.js"],
       "run_at": "document_start",
       "all_frames": true
@@ -28,18 +25,9 @@
   },
   "web_accessible_resources": [
     {
-      "resources": [ "/static/js/inpage.js" ],
-      "matches": [ 
-        "http://*/*",
-        "https://*/*"
-      ]
+      "resources": ["/static/js/inpage.js"],
+      "matches": ["http://*/*", "https://*/*"]
     }
   ],
-  "permissions": [
-    "activeTab",
-    "tabs",
-    "scripting",
-    "storage",
-    "webNavigation"
-  ]
+  "permissions": ["activeTab", "tabs", "scripting", "storage", "webNavigation"]
 }
