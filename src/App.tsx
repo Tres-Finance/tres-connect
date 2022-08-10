@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import './App.css';
 import Button from '@mui/material/Button';
-import { alpha, styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import { Box } from '@mui/system';
 import { Stack } from '@mui/material';
@@ -54,15 +53,23 @@ const App = () => {
           <p>Import wallet address and start faking it.</p>
           <TextField
             label="Address"
-            inputProps={{ style: { color: "white" } }}
+            inputProps={{ style: { color: 'white' } }}
             className="text-box"
             disabled={isImpersonating}
             value={address}
             onChange={(e) => setAddress(e.target.value)}
           />
-          <Button variant='contained' onClick={handleClick}>{isImpersonating ? 'Stop' : 'Start'}</Button>
+          <Button variant="contained" onClick={handleClick}>
+            {isImpersonating ? 'Stop' : 'Start'}
+          </Button>
           <p className="bottom-text">Make sure MetaMask is installed before starting.</p>
-          <p className="powered-text">Powered by <a href="https://tres.finance" target="_blank">TRES</a>.</p>
+          <p className="powered-text">
+            Powered by{' '}
+            <a href="https://tres.finance" target="_blank" rel="noreferrer">
+              TRES
+            </a>
+            .
+          </p>
         </Stack>
       </Box>
     </div>
