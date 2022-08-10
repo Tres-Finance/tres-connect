@@ -195,7 +195,13 @@ export const setupInpageImpersonator = () => {
       }
     });
 
-    window.postMessage({ type: 'impersonator-ready' });
+    if (window.ethereum) {
+      window.postMessage({ type: 'impersonator-ready' });
+    } else {
+      window.addEventListener('ethereum#initialized', () => {
+        window.postMessage({ type: 'impersonator-ready' });
+      });
+    }
     console.log('[Impersonator::inpage.js]. Injected');
   }
 };
