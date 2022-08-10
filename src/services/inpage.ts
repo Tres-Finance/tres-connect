@@ -216,8 +216,21 @@ export const setupInpageImpersonator = () => {
 
     if (!window.impersonator) {
         window.impersonator = { mockedFunctionsUndoers: {}, stopImpersonation, startImpersonation };
+
+        window.addEventListener('message', (event) => {
+            if (event.target !== window || event.target !== window) {
+                return;
+            }
+            if (event.data.type && event.data.type === 'impersonator-start') {
+                console.debug('[Impersonator::inpage.js]. starting impersonation from content-script', event.data);
+                startImpersonation(event.data.address, event.data.triggerAccountsChanged);
+            }
+        })
+
+        window.postMessage({ type: 'impersonator-ready' });
         console.log('[Impersonator::inpage.js]. Injected');
     }
+    
 }
 
 setupInpageImpersonator()
