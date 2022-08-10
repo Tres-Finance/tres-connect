@@ -60,3 +60,40 @@ label {
 .Mui-disabled {
   -webkit-text-fill-color:unset!important;
 }
+
+label.Mui-focused {
+  color: '#fff';
+}
+
+.MuiInput-underline:after {
+  border-color: '#fff';
+  color: '#fff';
+}
+
+.MuiOutlinedInput-root fieldset {
+  border:#fff 1px solid!important;;
+
+}
+
+.MuiOutlinedInput:hover fieldset {
+  border:#fff 1px solid!important;
+  color: '#fff'!important;;
+}
+
+.Mui-focused fieldset {
+  border:#fff 1px solid!important;;
+  color: '#fff'!important;;
+}
+  
+.Mui-disabled fieldset {
+  opacity: 0;
+  color: '#fff';
+}
+
+.Mui-disabled input {
+  color: '#fff';
+}
+
+.Mui-disabled {
+  -webkit-text-fill-color: '#fff';
+}
