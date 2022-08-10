@@ -217,6 +217,8 @@ export const setupInpageImpersonator = () => {
     if (!window.impersonator) {
         window.impersonator = { mockedFunctionsUndoers: {}, stopImpersonation, startImpersonation };
 
+        // this is used to receive the "impersonator-start" event from the extension (content script)
+        // this event is fired with the address of the account to impersonate, in response to this inpage script sending the "impersonator-ready" event
         window.addEventListener('message', (event) => {
             if (event.target !== window || event.target !== window) {
                 return;
