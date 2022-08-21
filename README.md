@@ -4,7 +4,7 @@
 
 > Readonly wallet addresses for any DeFi app
 
-## What does extension do?
+## What does this extension do?
 
 Some DeFi apps do not support viewing the stats of an arbitrary address. These apps allow us to connect using a wallet provider.  
 TresConnect enables you to connect to these apps using any address you choose, in a _read only_ mode (e.g. can only view, not sign messages / transactions)
