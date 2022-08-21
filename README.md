@@ -19,6 +19,10 @@ TresConnect enables you to connect to these apps using any address you choose, i
 
 ![example-usage](media/example%20usage.gif)
 
+## About TRES Finance
+[TRES Finance - Crypto Accounting](https://www.tres.finance/) enables financial workflows such as reconciliation, balance calculation, audit and reporting for Web3 assets from on-ramp to off-ramp.
+Let TRES do the work for you.
+
 ## Known limitations
 
 Does not support apps that require signing a message for login (e.g. Polygon Staking)
