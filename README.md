@@ -17,7 +17,7 @@ TresConnect enables you to connect to these apps using any address you choose, i
 4. Click on the extension, enter an address and click `start`
 5. Click `stop` when you are done
 
-![example-usage](media/example%20usage.mp4)
+![example-usage](media/example%20usage.gif)
 
 ## Known limitations
 
